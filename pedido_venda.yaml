@@ -1,0 +1,673 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/pedidovenda/PedidoVenda/{organizacao}/{serie}/{codigo}:
+    get:
+      tags:
+      - PedidoVenda
+      operationId: ApiPedidovendaPedidoVendaByOrganizacaoBySerieByCodigoGet
+      parameters:
+      - name: organizacao
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: serie
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: codigo
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/pedidovenda/PedidoVenda/{id}:
+    get:
+      tags:
+      - PedidoVenda
+      operationId: ApiPedidovendaPedidoVendaByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/pedidovenda/PedidoVendaWeb/{id}:
+    get:
+      tags:
+      - PedidoVendaWeb
+      operationId: ApiPedidovendaPedidoVendaWebByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/pedidovenda/PedidoVendaWeb:
+    post:
+      tags:
+      - PedidoVendaWeb
+      operationId: ApiPedidovendaPedidoVendaWebPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.Models.PedidoVendaWeb'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.Models.PedidoVendaWeb'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.Models.PedidoVendaWeb'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.Models.PedidoVendaWeb'
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  schemas:
+    Mega.Erp.Vendas.Pedido.Common.PercentualValor:
+      type: object
+      properties:
+        percentual:
+          type: number
+          format: double
+        valor:
+          type: number
+          format: double
+    Mega.Erp.Vendas.Pedido.Common.Models.ItemWeb:
+      type: object
+      properties:
+        sequenciaPedido:
+          type: integer
+          format: int64
+        codigoAlternativo:
+          type: string
+        cfopExtenso:
+          type: string
+        situacaoImportacao:
+          type: string
+        usuarioInclusao:
+          type: integer
+          format: int32
+        dataIncluscao:
+          type: string
+          format: date-time
+        sequencia:
+          type: integer
+          format: int32
+        complemento:
+          type: string
+        produto:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Produto'
+        ncmCodigo:
+          type: integer
+          format: int32
+        servicoCodigo:
+          type: integer
+          format: int32
+        uf:
+          type: string
+        municipioCodigo:
+          type: integer
+          format: int32
+        aplicacao:
+          type: integer
+          format: int32
+        tabelaPreco:
+          type: integer
+          format: int32
+        tipoPreco:
+          type: integer
+          format: int32
+        precoTabela:
+          type: number
+          format: double
+        centroCustoIDE:
+          type: string
+        centroCusto:
+          type: integer
+          format: int32
+        projetoIDE:
+          type: string
+        projeto:
+          type: integer
+          format: int32
+        quantidade:
+          type: number
+          format: double
+        valorUnitario:
+          type: number
+          format: double
+        valorMercadoria:
+          type: number
+          format: double
+        valorMercadoriaEmpregada:
+          type: number
+          format: double
+        valorMaoObra:
+          type: number
+          format: double
+        valorTotal:
+          type: number
+          format: double
+        fretePorConta:
+          type: string
+        valorFrete:
+          type: number
+          format: double
+        valorSeguro:
+          type: number
+          format: double
+        valorDespesasAcesssorias:
+          type: number
+          format: double
+        numeroPedidoCliente:
+          type: string
+        codigoCliente:
+          type: string
+        desconto:
+          $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.PercentualValor'
+        acrescimo:
+          $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.PercentualValor'
+        caucao:
+          $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.PercentualValor'
+        descontoUnitario:
+          $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.PercentualValor'
+        valorImportacao:
+          type: number
+          format: double
+        composicaoProduto:
+          type: integer
+          format: int32
+        tipoClasse:
+          type: integer
+          format: int32
+        isFabricacaoSobEncomenda:
+          type: boolean
+        formato:
+          type: integer
+          format: int32
+        emabalagem:
+          type: integer
+          format: int32
+        embalagemUnidade:
+          type: integer
+          format: int32
+        embalagemFormato:
+          type: integer
+          format: int32
+        almoxarifado:
+          type: integer
+          format: int32
+        localizacao:
+          type: integer
+          format: int32
+        quantidadeAuxiliar:
+          type: number
+          format: double
+        generico:
+          type: string
+        largura:
+          type: number
+          format: double
+        comprimento:
+          type: number
+          format: double
+        medidaReal:
+          type: number
+          format: double
+        percentualDescontoDigitado:
+          type: number
+          format: double
+        icms:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        icmsBaseST:
+          type: number
+          format: double
+        icmsBaseSTAnterior:
+          type: number
+          format: double
+        icmsBaseRetidoAnterior:
+          type: number
+          format: double
+        icmsRepasse:
+          type: number
+          format: double
+        icmsRecuperado:
+          type: number
+          format: double
+        icmsIsento:
+          type: number
+          format: double
+        icmsOutros:
+          type: number
+          format: double
+        ipi:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        ipiRecuperado:
+          type: number
+          format: double
+        ipiIsento:
+          type: number
+          format: double
+        ipiOutros:
+          type: number
+          format: double
+        issDevido:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        issRetido:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        irrf:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        inss:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        pis:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        pisRecuperado:
+          type: number
+          format: double
+        cofins:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        cofinsRecuperado:
+          type: number
+          format: double
+        csll:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        inssRural:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        fcp:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        fcpSubstituido:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        fcpstRetido:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        difalDestino:
+          $ref: '#/components/schemas/Mega.Erp.Cloud.Impostos.Common.Models.Imposto'
+        difalRemetente:
+          type: number
+          format: double
+        suframa:
+          type: number
+          format: double
+        suframaPIS:
+          type: number
+          format: double
+        suframaCOFINS:
+          type: number
+          format: double
+        percentualLucro:
+          type: number
+          format: double
+        codigoSTPIS:
+          type: string
+        codigoSTCOFINS:
+          type: string
+        codigoSTICMSA:
+          type: string
+        codigoSTICMSB:
+          type: string
+        codigoSTIPI:
+          type: string
+        enquadramentoIPI:
+          type: string
+    Mega.Erp.Global.Agentes.Common.Models.AgenteTipo:
+      type: object
+      properties:
+        tipo:
+          type: string
+          enum:
+          - Cliente
+          - Fornecedor
+          - Representante
+          - Contato
+          - Transportadora
+          - Organizacao
+          - ContaFinanceira
+          - Tributo
+          - ObrigacaoSocial
+          - Colaborador
+          - Outro
+          - Obra
+          - Sindicato
+    Mega.Erp.Global.Agentes.Common.Models.Organizacao:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        id:
+          type: integer
+          format: int32
+        nome:
+          type: string
+        nomeFantasia:
+          type: string
+        agente:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Agente'
+    Mega.Erp.Produtos.Common.Models.Produto:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        alternativo:
+          type: string
+        definicaoItem:
+          type: string
+        descricao:
+          type: string
+        unidade:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Unidade'
+        grupo:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Grupo'
+        id:
+          type: string
+    Mega.Erp.Vendas.Pedido.Common.Models.Frete:
+      type: object
+      properties:
+        tipoFrete:
+          type: string
+        fretePorConta:
+          type: string
+          enum:
+          - Vazio
+          - CIF
+          - FOB
+          - Terceiros
+          - SemFrete
+        valorFrete:
+          type: number
+          format: double
+        valorSeguro:
+          type: number
+          format: double
+    Mega.Erp.Vendas.Pedido.Common.Models.ObservacaoWeb:
+      type: object
+      properties:
+        sequenciaPedido:
+          type: integer
+          format: int64
+        tipo:
+          type: string
+        descricao:
+          type: string
+    Mega.Erp.Vendas.Pedido.Common.Models.Manutencao:
+      type: object
+      properties:
+        dataInclusao:
+          type: string
+          format: date-time
+        usuarioInclusao:
+          type: integer
+          format: int32
+        dataAlteracao:
+          type: string
+          format: date-time
+        usuarioAlteracao:
+          type: integer
+          format: int32
+    Mega.Erp.Vendas.Pedido.Common.Models.PedidoVendaWeb:
+      type: object
+      properties:
+        sequencia:
+          type: integer
+          format: int64
+        serie:
+          type: string
+        codigo:
+          type: integer
+          format: int32
+        situacao:
+          type: string
+        organizacao:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Organizacao'
+        filial:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Organizacao'
+        tipoDocumento:
+          $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.Models.TipoDocumento'
+        codigoAcao:
+          type: integer
+          format: int32
+        dataEmissao:
+          type: string
+          format: date-time
+        dataEntrega:
+          type: string
+          format: date-time
+        cliente:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Agente'
+        tipoCodigoCliente:
+          type: string
+        enderecoEntrega:
+          type: integer
+          format: int32
+        condicaoPagamento:
+          type: string
+        representante:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Agente'
+        equipe:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Agente'
+        transportadora:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Agente'
+        redespacho:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Agente'
+        acrescimo:
+          $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.PercentualValor'
+        desconto:
+          $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.PercentualValor'
+        caucao:
+          $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.PercentualValor'
+        usuarioData:
+          $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.Models.Manutencao'
+        frete:
+          $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.Models.Frete'
+        valorDespesasAcessorias:
+          type: number
+          format: double
+        total:
+          type: number
+          format: double
+        valorMercadoria:
+          type: number
+          format: double
+        valorMaoDeObra:
+          type: number
+          format: double
+        valorMercadoriaEmpregada:
+          type: number
+          format: double
+        indiceFinanceiro:
+          $ref: '#/components/schemas/Mega.Erp.Global.Common.Models.IndiceFinanceiro'
+        cotacaoMoeda:
+          type: number
+          format: double
+        centroCusto:
+          type: number
+          format: double
+        projeto:
+          type: number
+          format: double
+        isFabricacaoSobEncomenda:
+          type: boolean
+        isConsumidorFinal:
+          type: boolean
+        indicadorPresenca:
+          type: integer
+          format: int32
+        prioridade:
+          type: integer
+          format: int32
+        difalRemetente:
+          type: number
+          format: double
+        difalDestinatario:
+          type: number
+          format: double
+        fcp:
+          type: number
+          format: double
+        fcpst:
+          type: number
+          format: double
+        fcpstRetido:
+          type: number
+          format: double
+        idApp:
+          type: string
+        observacoesWeb:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.Models.ObservacaoWeb'
+        itensWeb:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Vendas.Pedido.Common.Models.ItemWeb'
+    Mega.Erp.Global.Agentes.Common.Models.Agente:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        id:
+          type: string
+          readOnly: true
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        tipo:
+          type: string
+          enum:
+          - Cliente
+          - Fornecedor
+          - Representante
+          - Contato
+          - Transportadora
+          - Organizacao
+          - ContaFinanceira
+          - Tributo
+          - ObrigacaoSocial
+          - Colaborador
+          - Outro
+          - Obra
+          - Sindicato
+        nome:
+          type: string
+        nomeFantasia:
+          type: string
+        cnpj:
+          type: string
+        tipos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.AgenteTipo'
+    Mega.Erp.Produtos.Common.Models.Grupo:
+      type: object
+      properties:
+        codigo:
+          type: integer
+          format: int32
+        padrao:
+          type: integer
+          format: int32
+        identificador:
+          type: string
+        descricao:
+          type: string
+        codigoDescricao:
+          type: string
+          readOnly: true
+        id:
+          type: string
+    Mega.Erp.Cloud.Impostos.Common.Models.Imposto:
+      type: object
+      properties:
+        base:
+          type: number
+          format: double
+        aliquota:
+          type: number
+          format: double
+        valorCalculado:
+          type: number
+          format: double
+        valorRetido:
+          type: number
+          format: double
+    Mega.Erp.Produtos.Common.Models.Unidade:
+      type: object
+      properties:
+        codigo:
+          type: string
+        padrao:
+          type: integer
+          format: int32
+        id:
+          type: string
+    Mega.Erp.Vendas.Pedido.Common.Models.TipoDocumento:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        serie:
+          type: string
+        descricao:
+          type: string
+        tipo:
+          type: string
+        isBaixaEstoque:
+          type: boolean
+        isReservaEstoque:
+          type: boolean
+        isCalculaComissao:
+          type: boolean
+        tipoReserva:
+          type: string
+    Mega.Erp.Global.Common.Models.IndiceFinanceiro:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        nome:
+          type: string
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,55 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/qualidade/OcorrenciaRefugo:
+    get:
+      tags:
+      - OcorrenciaRefugo
+      operationId: ApiQualidadeOcorrenciaRefugoGet
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/qualidade/OcorrenciaRefugo/GetByPadrao/{padrao}:
+    get:
+      tags:
+      - OcorrenciaRefugo
+      operationId: ApiQualidadeOcorrenciaRefugoGetByPadraoByPadraoGet
+      parameters:
+      - name: padrao
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/qualidade/OcorrenciaRefugo/{id}:
+    get:
+      tags:
+      - OcorrenciaRefugo
+      operationId: ApiQualidadeOcorrenciaRefugoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT 

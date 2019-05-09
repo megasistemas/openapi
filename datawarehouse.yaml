@@ -1,0 +1,275 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/datawarehouse/Fluxo:
+    get:
+      tags:
+      - Fluxo
+      operationId: ApiDatawarehouseFluxoGet
+      responses:
+        200:
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: array
+                items:
+                  type: string
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+            text/json:
+              schema:
+                type: array
+                items:
+                  type: string
+    put:
+      tags:
+      - Fluxo
+      operationId: ApiDatawarehouseFluxoPut
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Datawarehouse.Common.Models.Fluxo'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Datawarehouse.Common.Models.Fluxo'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Datawarehouse.Common.Models.Fluxo'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Datawarehouse.Common.Models.Fluxo'
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+    post:
+      tags:
+      - Fluxo
+      operationId: ApiDatawarehouseFluxoPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Datawarehouse.Common.Models.Fluxo'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Datawarehouse.Common.Models.Fluxo'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Datawarehouse.Common.Models.Fluxo'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Datawarehouse.Common.Models.Fluxo'
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/datawarehouse/Fluxo/{id}:
+    get:
+      tags:
+      - Fluxo
+      operationId: ApiDatawarehouseFluxoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+    delete:
+      tags:
+      - Fluxo
+      operationId: ApiDatawarehouseFluxoByIdDelete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  schemas:
+    Mega.Erp.Contabilidade.Cadastros.Common.Models.CentroCusto:
+      type: object
+      properties:
+        padrao:
+          type: integer
+          format: int32
+        identificador:
+          type: string
+        reduzido:
+          type: integer
+          format: int32
+        id:
+          type: string
+    Mega.Erp.Global.Common.Models.Projeto:
+      type: object
+      properties:
+        padrao:
+          type: integer
+          format: int32
+        identificador:
+          type: string
+        reduzido:
+          type: integer
+          format: int32
+        id:
+          type: string
+    Mega.Erp.Global.Agentes.Common.Models.Agente:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        id:
+          type: string
+          readOnly: true
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        tipo:
+          type: integer
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+        nome:
+          type: string
+        nomeFantasia:
+          type: string
+        cnpj:
+          type: string
+        tipos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.AgenteTipo'
+    Mega.Erp.Global.Agentes.Common.Models.AgenteTipo:
+      type: object
+      properties:
+        tipo:
+          type: integer
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+    Mega.Erp.Global.Agentes.Common.Models.Organizacao:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        id:
+          type: integer
+          format: int32
+        nome:
+          type: string
+        nomeFantasia:
+          type: string
+        agente:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Agente'
+    Mega.Erp.Financeiro.Cadastros.Common.Models.ClasseFinanceira:
+      type: object
+      properties:
+        padrao:
+          type: integer
+          format: int32
+        identificador:
+          type: string
+        reduzido:
+          type: integer
+          format: int32
+        id:
+          type: string
+    Mega.Erp.Datawarehouse.Common.Models.Fluxo:
+      type: object
+      properties:
+        codigo:
+          type: string
+        data:
+          type: string
+          format: date-time
+        valor:
+          type: number
+          format: double
+        valorDeb:
+          type: number
+          format: double
+        valorCre:
+          type: number
+          format: double
+        natureza:
+          type: string
+        observacao:
+          type: string
+        organizacao:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Organizacao'
+        filial:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Organizacao'
+        agente:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Agente'
+        classe:
+          $ref: '#/components/schemas/Mega.Erp.Financeiro.Cadastros.Common.Models.ClasseFinanceira'
+        centrocusto:
+          $ref: '#/components/schemas/Mega.Erp.Contabilidade.Cadastros.Common.Models.CentroCusto'
+        projeto:
+          $ref: '#/components/schemas/Mega.Erp.Global.Common.Models.Projeto'
+          components:
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT 

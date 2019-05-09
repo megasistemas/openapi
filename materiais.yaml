@@ -1,0 +1,258 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/materiais/ListaMaterial/{padraoItem}/{codigoitem}/{composicao}:
+    get:
+      tags:
+      - ListaMaterial
+      operationId: ApiMateriaisListaMaterialByPadraoItemByCodigoitemByComposicaoGet
+      parameters:
+      - name: padraoItem
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: codigoitem
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: composicao
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+    delete:
+      tags:
+      - ListaMaterial
+      operationId: ApiMateriaisListaMaterialByPadraoItemByCodigoitemByComposicaoDelete
+      parameters:
+      - name: padraoItem
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: codigoitem
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: composicao
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/materiais/ListaMaterial:
+    post:
+      tags:
+      - ListaMaterial
+      operationId: ApiMateriaisListaMaterialPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Materiais.Common.Models.ListaMaterial'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Materiais.Common.Models.ListaMaterial'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Materiais.Common.Models.ListaMaterial'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Materiais.Common.Models.ListaMaterial'
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  schemas:
+    Mega.Erp.Materiais.Common.Models.ItemLista:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        sequencia:
+          type: integer
+          format: int32
+        isCalculaDemanda:
+          type: boolean
+        composicao:
+          type: integer
+          format: int32
+        revisao:
+          type: integer
+          format: int32
+        quantidade:
+          type: number
+          format: double
+        isCalculaCusto:
+          type: boolean
+        percentualPerda:
+          type: number
+          format: double
+        observacao:
+          type: string
+        isControlaMatTerc:
+          type: boolean
+        isLimiteDesmontagem:
+          type: boolean
+        utilizacao:
+          type: integer
+          format: int32
+          enum:
+          - 0
+          - 1
+          - 2
+        unidade:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Unidade'
+        conversor:
+          $ref: '#/components/schemas/Mega.Erp.Materiais.Common.Models.Conversor'
+        produto:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Produto'
+        id:
+          type: string
+    Mega.Erp.Materiais.Common.Models.RevisaoLista:
+      type: object
+      properties:
+        revisao:
+          type: integer
+          format: int32
+        dataRevisao:
+          type: string
+          format: date-time
+        detalhe:
+          type: string
+        inicioVigencia:
+          type: string
+          format: date-time
+        usuario:
+          $ref: '#/components/schemas/Mega.Erp.Materiais.Common.Models.Usuario'
+        itens:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Materiais.Common.Models.ItemLista'
+        id:
+          type: string
+    Mega.Erp.Produtos.Common.Models.Grupo:
+      type: object
+      properties:
+        codigo:
+          type: integer
+          format: int32
+        padrao:
+          type: integer
+          format: int32
+        identificador:
+          type: string
+        descricao:
+          type: string
+        codigoDescricao:
+          type: string
+          readOnly: true
+        id:
+          type: string
+    Mega.Erp.Materiais.Common.Models.ListaMaterial:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        composicao:
+          type: integer
+          format: int32
+        descricao:
+          type: string
+        produto:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Produto'
+        revisoes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Materiais.Common.Models.RevisaoLista'
+        id:
+          type: string
+    Mega.Erp.Produtos.Common.Models.Produto:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        alternativo:
+          type: string
+        definicaoItem:
+          type: string
+        descricao:
+          type: string
+        unidade:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Unidade'
+        grupo:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Grupo'
+        id:
+          type: string
+    Mega.Erp.Produtos.Common.Models.Unidade:
+      type: object
+      properties:
+        codigo:
+          type: string
+        padrao:
+          type: integer
+          format: int32
+        id:
+          type: string
+    Mega.Erp.Materiais.Common.Models.Usuario:
+      type: object
+      properties:
+        codigo:
+          type: integer
+          format: int32
+        nome:
+          type: string
+    Mega.Erp.Materiais.Common.Models.Conversor:
+      type: object
+      properties:
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: string
+        nome:
+          type: string
+        id:
+          type: string
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

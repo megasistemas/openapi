@@ -1,0 +1,179 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/global/IndiceFinanceiro/{id}:
+    get:
+      tags:
+      - IndiceFinanceiro
+      operationId: ApiGlobalIndiceFinanceiroByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/global/MegaParametro:
+    get:
+      tags:
+      - MegaParametro
+      operationId: ApiGlobalMegaParametroGet
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/global/PadraoTabela/Atual/{filial}/{tabela}:
+    get:
+      tags:
+      - PadraoTabela
+      operationId: ApiGlobalPadraoTabelaAtualByFilialByTabelaGet
+      parameters:
+      - name: filial
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: tabela
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/global/PadraoTabela/Atual/Lista/{filial}/{tabelas}:
+    get:
+      tags:
+      - PadraoTabela
+      operationId: ApiGlobalPadraoTabelaAtualListaByFilialByTabelasGet
+      parameters:
+      - name: filial
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: tabelas
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/global/Projeto:
+    get:
+      tags:
+      - Projeto
+      operationId: ApiGlobalProjetoGet
+      responses:
+        200:
+          description: Success
+          content: {}
+    post:
+      tags:
+      - Projeto
+      operationId: ApiGlobalProjetoPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          application/*+json:
+            schema:
+              type: string
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/global/Projeto/{id}:
+    get:
+      tags:
+      - Projeto
+      operationId: ApiGlobalProjetoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+    put:
+      tags:
+      - Projeto
+      operationId: ApiGlobalProjetoByIdPut
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          application/*+json:
+            schema:
+              type: string
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+    delete:
+      tags:
+      - Projeto
+      operationId: ApiGlobalProjetoByIdDelete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT 

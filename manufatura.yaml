@@ -1,0 +1,1208 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/manufatura/ApontaDispositivo/GetIpRequest:
+    get:
+      tags:
+      - ApontaDispositivo
+      operationId: ApiManufaturaApontaDispositivoGetIpRequestGet
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/ApontaDispositivo/GetByIpRequest:
+    get:
+      tags:
+      - ApontaDispositivo
+      operationId: ApiManufaturaApontaDispositivoGetByIpRequestGet
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Apontamento:
+    get:
+      tags:
+      - Apontamento
+      operationId: ApiManufaturaApontamentoGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Apontamento/{id}:
+    get:
+      tags:
+      - Apontamento
+      operationId: ApiManufaturaApontamentoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Apontamento/Produtivo:
+    post:
+      tags:
+      - Apontamento
+      operationId: ApiManufaturaApontamentoProdutivoPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Apontamento/Improdutivo:
+    post:
+      tags:
+      - Apontamento
+      operationId: ApiManufaturaApontamentoImprodutivoPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/ApontamentoRefugo:
+    get:
+      tags:
+      - ApontamentoRefugo
+      operationId: ApiManufaturaApontamentoRefugoGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/ApontamentoRefugo/{id}:
+    get:
+      tags:
+      - ApontamentoRefugo
+      operationId: ApiManufaturaApontamentoRefugoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/ApontamentoTemp:
+    get:
+      tags:
+      - ApontamentoTemp
+      operationId: ApiManufaturaApontamentoTempGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/ApontamentoTemp/{id}:
+    get:
+      tags:
+      - ApontamentoTemp
+      operationId: ApiManufaturaApontamentoTempByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/ApontamentoTemp/GetAbertos/{tipo}/{id}/{idAux}:
+    get:
+      tags:
+      - ApontamentoTemp
+      operationId: ApiManufaturaApontamentoTempGetAbertosByTipoByIdByIdAuxGet
+      parameters:
+      - name: tipo
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: idAux
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/ApontamentoTemp/Abertura:
+    post:
+      tags:
+      - ApontamentoTemp
+      operationId: ApiManufaturaApontamentoTempAberturaPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.ApontamentoTemp'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.ApontamentoTemp'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.ApontamentoTemp'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.ApontamentoTemp'
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/ApontamentoTemp/Encerramento:
+    post:
+      tags:
+      - ApontamentoTemp
+      operationId: ApiManufaturaApontamentoTempEncerramentoPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Apontamento'
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/ApontamentoTemp/Pausar:
+    post:
+      tags:
+      - ApontamentoTemp
+      operationId: ApiManufaturaApontamentoTempPausarPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: string
+              format: uuid
+          application/json:
+            schema:
+              type: string
+              format: uuid
+          text/json:
+            schema:
+              type: string
+              format: uuid
+          application/*+json:
+            schema:
+              type: string
+              format: uuid
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/ApontamentoTemp/Cancelar:
+    post:
+      tags:
+      - ApontamentoTemp
+      operationId: ApiManufaturaApontamentoTempCancelarPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: string
+              format: uuid
+          application/json:
+            schema:
+              type: string
+              format: uuid
+          text/json:
+            schema:
+              type: string
+              format: uuid
+          application/*+json:
+            schema:
+              type: string
+              format: uuid
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Atividade:
+    get:
+      tags:
+      - Atividade
+      operationId: ApiManufaturaAtividadeGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Atividade/GetImprodutivo/{padrao}:
+    get:
+      tags:
+      - Atividade
+      operationId: ApiManufaturaAtividadeGetImprodutivoByPadraoGet
+      parameters:
+      - name: padrao
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Atividade/{id}:
+    get:
+      tags:
+      - Atividade
+      operationId: ApiManufaturaAtividadeByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Card/{id}:
+    get:
+      tags:
+      - Card
+      operationId: ApiManufaturaCardByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/CentroTrabalho:
+    get:
+      tags:
+      - CentroTrabalho
+      operationId: ApiManufaturaCentroTrabalhoGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/CentroTrabalho/{id}:
+    get:
+      tags:
+      - CentroTrabalho
+      operationId: ApiManufaturaCentroTrabalhoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/CentroTrabalhoKanban:
+    get:
+      tags:
+      - CentroTrabalhoKanban
+      operationId: ApiManufaturaCentroTrabalhoKanbanGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/CentroTrabalhoKanban/{id}:
+    get:
+      tags:
+      - CentroTrabalhoKanban
+      operationId: ApiManufaturaCentroTrabalhoKanbanByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/CentroTrabalhoKanban/GetByKanban/{codigoKanban}:
+    get:
+      tags:
+      - CentroTrabalhoKanban
+      operationId: ApiManufaturaCentroTrabalhoKanbanGetByKanbanByCodigoKanbanGet
+      parameters:
+      - name: codigoKanban
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/DemandaDependente:
+    get:
+      tags:
+      - DemandaDependente
+      operationId: ApiManufaturaDemandaDependenteGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/DemandaDependente/{id}:
+    get:
+      tags:
+      - DemandaDependente
+      operationId: ApiManufaturaDemandaDependenteByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Kanban:
+    get:
+      tags:
+      - Kanban
+      operationId: ApiManufaturaKanbanGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Kanban/{id}:
+    get:
+      tags:
+      - Kanban
+      operationId: ApiManufaturaKanbanByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Operador:
+    get:
+      tags:
+      - Operador
+      operationId: ApiManufaturaOperadorGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Operador/{id}:
+    get:
+      tags:
+      - Operador
+      operationId: ApiManufaturaOperadorByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Operador/GetByPadrao/{padrao}:
+    get:
+      tags:
+      - Operador
+      operationId: ApiManufaturaOperadorGetByPadraoByPadraoGet
+      parameters:
+      - name: padrao
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Ordem:
+    get:
+      tags:
+      - Ordem
+      operationId: ApiManufaturaOrdemGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Ordem/{id}:
+    get:
+      tags:
+      - Ordem
+      operationId: ApiManufaturaOrdemByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Parametro:
+    get:
+      tags:
+      - Parametro
+      operationId: ApiManufaturaParametroGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/Parametro/{id}:
+    get:
+      tags:
+      - Parametro
+      operationId: ApiManufaturaParametroByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/TipoOrdem:
+    get:
+      tags:
+      - TipoOrdem
+      operationId: ApiManufaturaTipoOrdemGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/TipoOrdem/{id}:
+    get:
+      tags:
+      - TipoOrdem
+      operationId: ApiManufaturaTipoOrdemByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/manufatura/ValidaLicenca/{codProduto}:
+    get:
+      tags:
+      - ValidaLicenca
+      operationId: ApiManufaturaValidaLicencaByCodProdutoGet
+      parameters:
+      - name: codProduto
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  schemas:
+    Mega.Erp.Estoque.Common.Models.Almoxarifado:
+      type: object
+      properties:
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        descricao:
+          type: string
+        localizacoes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Localizacao'
+        id:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.Usuario:
+      type: object
+      properties:
+        codigo:
+          type: integer
+          format: int32
+        nome:
+          type: string
+    Mega.Erp.Estoque.Common.Models.Localizacao:
+      type: object
+      properties:
+        codigo:
+          type: integer
+          format: int32
+        descricao:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.ApontamentoTemp:
+      type: object
+      properties:
+        codigo:
+          type: string
+          format: uuid
+        dataInicio:
+          type: string
+          format: date-time
+        dataTermino:
+          type: string
+          format: date-time
+        situacao:
+          type: string
+        tipo:
+          type: string
+        pausaInicio:
+          type: string
+          format: date-time
+        pausaTermino:
+          type: string
+          format: date-time
+        pausaTotal:
+          type: number
+          format: double
+        dispositivoInclusao:
+          type: string
+        dispositivoAlteracao:
+          type: string
+        dataInclusao:
+          type: string
+          format: date-time
+        dataAlteracao:
+          type: string
+          format: date-time
+        apontamentoEquipeStr:
+          type: string
+        organizacao:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Organizacao'
+        filial:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Organizacao'
+        ordem:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Ordem'
+        centroTrabalho:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.CentroTrabalho'
+        operador:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Operador'
+        atividade:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Atividade'
+        sequenciaOperacao:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.SequenciaOperacao'
+        apontamentosEquipe:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.ApontamentoEquipe'
+    Mega.Erp.Manufatura.Common.Models.CentroTrabalho:
+      type: object
+      properties:
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        nome:
+          type: string
+        id:
+          type: string
+    Mega.Erp.Global.Agentes.Common.Models.Organizacao:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        id:
+          type: integer
+          format: int32
+        nome:
+          type: string
+        nomeFantasia:
+          type: string
+        organizacaoResponsavel:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Organizacao'
+        agente:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Agente'
+    Mega.Erp.Produtos.Common.Models.Produto:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        alternativo:
+          type: string
+        definicaoItem:
+          type: string
+        descricao:
+          type: string
+        unidade:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Unidade'
+        grupo:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Grupo'
+        id:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.TipoOrdem:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: string
+        nome:
+          type: string
+        atividadeApontCompleto:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Atividade'
+        id:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.Operador:
+      type: object
+      properties:
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        nome:
+          type: string
+        id:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.DemandaDependente:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        quantidadeNecessaria:
+          type: number
+          format: double
+        quantidadeRequisitada:
+          type: number
+          format: double
+        quantidadeUnitaria:
+          type: number
+          format: double
+        situacao:
+          type: string
+        reserva:
+          type: integer
+          format: int32
+        dataNecessidade:
+          type: string
+          format: date-time
+        operacao:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Operacao'
+        produto:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Produto'
+        id:
+          type: string
+    Mega.Erp.Global.Agentes.Common.Models.Agente:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        id:
+          type: string
+          readOnly: true
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        nome:
+          type: string
+        nomeFantasia:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.SequenciaOperacao:
+      type: object
+      properties:
+        sequencia:
+          type: integer
+          format: int32
+        id:
+          type: string
+    Mega.Erp.Produtos.Common.Models.Grupo:
+      type: object
+      properties:
+        codigo:
+          type: integer
+          format: int32
+        padrao:
+          type: integer
+          format: int32
+        identificador:
+          type: string
+        descricao:
+          type: string
+        codigoDescricao:
+          type: string
+          readOnly: true
+        id:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.ApontamentoRefugo:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        quantidade:
+          type: number
+          format: double
+        observacao:
+          type: string
+        ocorrenciaRefugo:
+          $ref: '#/components/schemas/Mega.Erp.Qualidade.Common.Models.OcorrenciaRefugo'
+        id:
+          type: string
+    Mega.Erp.Produtos.Common.Models.Unidade:
+      type: object
+      properties:
+        codigo:
+          type: string
+        padrao:
+          type: integer
+          format: int32
+        descricao:
+          type: string
+        decimaisQuantidade:
+          type: integer
+          format: int32
+        decimaisValor:
+          type: integer
+          format: int32
+        id:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.ApontamentoEquipe:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        operador:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Operador'
+        id:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.ApontamentoLote:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        lote:
+          type: string
+        almoxarifado:
+          $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Almoxarifado'
+        localizacao:
+          $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Localizacao'
+        natureza:
+          $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Natureza'
+        entrada:
+          type: string
+          format: date-time
+        validade:
+          type: string
+          format: date-time
+        reserva:
+          type: integer
+          format: int32
+        quantidade:
+          type: number
+          format: double
+        quantidadeRefugada:
+          type: number
+          format: double
+    Mega.Erp.Manufatura.Common.Models.Atividade:
+      type: object
+      properties:
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        nome:
+          type: string
+        tempoInicial:
+          type: boolean
+        tempoFinal:
+          type: boolean
+        tempoTotal:
+          type: boolean
+        turno:
+          type: boolean
+        numeroPessoas:
+          type: boolean
+        quantidadeRecebida:
+          type: boolean
+        quantidadeRefugada:
+          type: boolean
+        ordem:
+          type: boolean
+        centroTrabalho:
+          type: boolean
+        equipeOperador:
+          type: boolean
+        id:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.Apontamento:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        codigo:
+          type: integer
+          format: int32
+        data:
+          type: string
+          format: date-time
+        documento:
+          type: string
+        tempoInicio:
+          type: number
+          format: double
+        tempoTermino:
+          type: number
+          format: double
+        tempoTotal:
+          type: number
+          format: double
+        quantidadeRecebida:
+          type: number
+          format: double
+        quantidadeRefugada:
+          type: number
+          format: double
+        isEncerra:
+          type: boolean
+        turno:
+          type: integer
+          format: int32
+        numeroPessoas:
+          type: integer
+          format: int32
+        atividade:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Atividade'
+        ordem:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Ordem'
+        organizacao:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Organizacao'
+        filial:
+          $ref: '#/components/schemas/Mega.Erp.Global.Agentes.Common.Models.Organizacao'
+        sequenciaOperacao:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.SequenciaOperacao'
+        centroTrabalho:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.CentroTrabalho'
+        operador:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Operador'
+        usuario:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Usuario'
+        unidade:
+          $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Unidade'
+        maquina:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.Maquina'
+        apontamentosRefugo:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.ApontamentoRefugo'
+        apontamentosEquipe:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.ApontamentoEquipe'
+        apontamentosLote:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.ApontamentoLote'
+    Mega.Erp.Qualidade.Common.Models.OcorrenciaRefugo:
+      type: object
+      properties:
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        nome:
+          type: string
+        id:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.Ordem:
+      type: object
+      properties:
+        expand:
+          type: string
+          readOnly: true
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        alternativo:
+          type: string
+        quantidade:
+          type: number
+          format: double
+        situacao:
+          type: string
+        programacao:
+          type: string
+        tipoOrdem:
+          $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.TipoOrdem'
+        demandas:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.Manufatura.Common.Models.DemandaDependente'
+        produto:
+          $ref: '#/components/schemas/Mega.Erp.Produtos.Common.Models.Produto'
+        id:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.Maquina:
+      type: object
+      properties:
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        id:
+          type: string
+    Mega.Erp.Manufatura.Common.Models.Operacao:
+      type: object
+      properties:
+        padrao:
+          type: integer
+          format: int32
+        codigo:
+          type: integer
+          format: int32
+        descricao:
+          type: string
+        id:
+          type: string
+    Mega.Erp.Estoque.Common.Models.Unidade:
+      type: object
+      properties:
+        codigo:
+          type: string
+        padrao:
+          type: integer
+          format: int32
+        id:
+          type: string
+    Mega.Erp.Estoque.Common.Models.Natureza:
+      type: object
+      properties:
+        codigo:
+          type: string
+        padrao:
+          type: integer
+          format: int32
+        descricao:
+          type: string
+        id:
+          type: string
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

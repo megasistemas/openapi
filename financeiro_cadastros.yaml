@@ -1,0 +1,146 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/financeirocadastros/ClasseFinanceira:
+    get:
+      tags:
+      - ClasseFinanceira
+      operationId: ApiFinanceirocadastrosClasseFinanceiraGet
+      responses:
+        200:
+          description: Success
+          content: {}
+    post:
+      tags:
+      - ClasseFinanceira
+      operationId: ApiFinanceirocadastrosClasseFinanceiraPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          application/*+json:
+            schema:
+              type: string
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/financeirocadastros/ClasseFinanceira/{id}:
+    get:
+      tags:
+      - ClasseFinanceira
+      operationId: ApiFinanceirocadastrosClasseFinanceiraByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+    put:
+      tags:
+      - ClasseFinanceira
+      operationId: ApiFinanceirocadastrosClasseFinanceiraByIdPut
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          application/*+json:
+            schema:
+              type: string
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+    delete:
+      tags:
+      - ClasseFinanceira
+      operationId: ApiFinanceirocadastrosClasseFinanceiraByIdDelete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/financeirocadastros/Parametros/{id}:
+    get:
+      tags:
+      - Parametros
+      operationId: ApiFinanceirocadastrosParametrosByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/financeirocadastros/TipoReferencia/{id}:
+    get:
+      tags:
+      - TipoReferencia
+      operationId: ApiFinanceirocadastrosTipoReferenciaByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT 

@@ -1,0 +1,147 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/produto/Grupo:
+    get:
+      tags:
+      - Grupo
+      operationId: ApiProdutoGrupoGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+  /api/produto/Grupo/{id}:
+    get:
+      tags:
+      - Grupo
+      operationId: ApiProdutoGrupoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+  /api/produto/Produto:
+    get:
+      tags:
+      - Produto
+      operationId: ApiProdutoProdutoGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+  /api/produto/Produto/{id}:
+    get:
+      tags:
+      - Produto
+      operationId: ApiProdutoProdutoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+  /api/produto/Produto/grupo/{grupoId}:
+    get:
+      tags:
+      - Produto
+      operationId: ApiProdutoProdutoGrupoByGrupoIdGet
+      parameters:
+      - name: grupoId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+  /api/produto/Unidade:
+    get:
+      tags:
+      - Unidade
+      operationId: ApiProdutoUnidadeGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+  /api/produto/Unidade/{id}:
+    get:
+      tags:
+      - Unidade
+      operationId: ApiProdutoUnidadeByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+      x-auth-type: Application & Application User
+      x-throttling-tier: Unlimited
+components:
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT 

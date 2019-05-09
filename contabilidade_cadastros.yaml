@@ -1,0 +1,107 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/contabilidadecadastros/CentroCusto:
+    get:
+      tags:
+      - CentroCusto
+      operationId: ApiContabilidadecadastrosCentroCustoGet
+      responses:
+        200:
+          description: Success
+          content: {}
+    post:
+      tags:
+      - CentroCusto
+      operationId: ApiContabilidadecadastrosCentroCustoPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          application/*+json:
+            schema:
+              type: string
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/contabilidadecadastros/CentroCusto/{id}:
+    get:
+      tags:
+      - CentroCusto
+      operationId: ApiContabilidadecadastrosCentroCustoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+    put:
+      tags:
+      - CentroCusto
+      operationId: ApiContabilidadecadastrosCentroCustoByIdPut
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              type: string
+          application/json:
+            schema:
+              type: string
+          text/json:
+            schema:
+              type: string
+          application/*+json:
+            schema:
+              type: string
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+    delete:
+      tags:
+      - CentroCusto
+      operationId: ApiContabilidadecadastrosCentroCustoByIdDelete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT           
