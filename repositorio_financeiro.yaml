@@ -1,0 +1,84 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/RepositorioFinanceiro/Remonta:
+    post:
+      tags:
+      - Remonta
+      operationId: ApiRepositorioFinanceiroRemontaPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.AdmObra.RepositorioFinanceiro.Common.Model.Dados'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.AdmObra.RepositorioFinanceiro.Common.Model.Dados'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.AdmObra.RepositorioFinanceiro.Common.Model.Dados'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.AdmObra.RepositorioFinanceiro.Common.Model.Dados'
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/RepositorioFinanceiro/Status/{id}:
+    get:
+      tags:
+      - Remonta
+      operationId: ApiRepositorioFinanceiroStatusByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  schemas:
+    Mega.Erp.AdmObra.RepositorioFinanceiro.Common.Model.Acesso:
+      type: object
+      properties:
+        data:
+          type: string
+          format: date-time
+        computador:
+          type: string
+        usuario:
+          type: integer
+          format: int32
+    Mega.Erp.AdmObra.RepositorioFinanceiro.Common.Model.Orcamento:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        sequencia:
+          type: integer
+          format: int32
+    Mega.Erp.AdmObra.RepositorioFinanceiro.Common.Model.Dados:
+      type: object
+      properties:
+        orcamentos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Mega.Erp.AdmObra.RepositorioFinanceiro.Common.Model.Orcamento'
+        acesso:
+          $ref: '#/components/schemas/Mega.Erp.AdmObra.RepositorioFinanceiro.Common.Model.Acesso'
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT 

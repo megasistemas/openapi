@@ -1,0 +1,320 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:  
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/estoque/Almoxarifado:
+    get:
+      tags:
+      - Almoxarifado
+      operationId: ApiEstoqueAlmoxarifadoGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/Almoxarifado/padrao/{padrao}:
+    get:
+      tags:
+      - Almoxarifado
+      operationId: ApiEstoqueAlmoxarifadoPadraoByPadraoGet
+      parameters:
+      - name: padrao
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/Almoxarifado/{id}:
+    get:
+      tags:
+      - Almoxarifado
+      operationId: ApiEstoqueAlmoxarifadoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/Almoxarifado/{id}/localizacao/{codLocal}:
+    get:
+      tags:
+      - Almoxarifado
+      operationId: ApiEstoqueAlmoxarifadoByIdLocalizacaoByCodLocalGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: codLocal
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/Caracteristica:
+    get:
+      tags:
+      - Caracteristica
+      operationId: ApiEstoqueCaracteristicaGet
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/Caracteristica/{id}:
+    get:
+      tags:
+      - Caracteristica
+      operationId: ApiEstoqueCaracteristicaByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/Criterio:
+    get:
+      tags:
+      - Criterio
+      operationId: ApiEstoqueCriterioGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/Criterio/{id}:
+    get:
+      tags:
+      - Criterio
+      operationId: ApiEstoqueCriterioByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/Localizacao:
+    get:
+      tags:
+      - Localizacao
+      operationId: ApiEstoqueLocalizacaoGet
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/Natureza:
+    get:
+      tags:
+      - Natureza
+      operationId: ApiEstoqueNaturezaGet
+      responses:
+        200:
+          description: Success
+          content: {}
+    put:
+      tags:
+      - Natureza
+      operationId: ApiEstoqueNaturezaPut
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Natureza'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Natureza'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Natureza'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Natureza'
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+    post:
+      tags:
+      - Natureza
+      operationId: ApiEstoqueNaturezaPost
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Natureza'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Natureza'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Natureza'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/Mega.Erp.Estoque.Common.Models.Natureza'
+        required: false
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/Natureza/{id}:
+    get:
+      tags:
+      - Natureza
+      operationId: ApiEstoqueNaturezaByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+    delete:
+      tags:
+      - Natureza
+      operationId: ApiEstoqueNaturezaByIdDelete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/SaldoFinanceiro:
+    get:
+      tags:
+      - SaldoFinanceiro
+      operationId: ApiEstoqueSaldoFinanceiroGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/SaldoFinanceiro/{id}:
+    get:
+      tags:
+      - SaldoFinanceiro
+      operationId: ApiEstoqueSaldoFinanceiroByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/estoque/SaldoSumarizado:
+    get:
+      tags:
+      - SaldoSumarizado
+      operationId: ApiEstoqueSaldoSumarizadoGet
+      parameters:
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  schemas:
+    Mega.Erp.Estoque.Common.Models.Natureza:
+      type: object
+      properties:
+        codigo:
+          type: string
+        padrao:
+          type: integer
+          format: int32
+        descricao:
+          type: string
+        isTerceiro:
+          type: boolean
+        tipo:
+          type: string
+          enum:
+          - Disponivel
+          - Planejado
+          - Reservado
+          - NaoDisponivel
+          - Encomendado
+          - Inspecao
+          - Temporario
+          - MaterialTerceiro
+          - PorderTerceiro
+          - IndisponivelTerceiro
+          - ReservadoTerceiro
+        id:
+          type: string
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

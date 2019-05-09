@@ -1,0 +1,134 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security: 
+- bearerAuth: []
+paths:
+  /api/custocontabil/Periodo:
+    get:
+      tags:
+      - Periodo
+      operationId: ApiCustocontabilPeriodoGet
+      responses:
+        200:
+          description: Success
+          content: {}
+        5xx:
+          description: Server Erro
+          content: {}
+  /api/custocontabil/Periodo/{id}:
+    get:
+      tags:
+      - Periodo
+      operationId: ApiCustocontabilPeriodoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/custocontabil/Saldo:
+    get:
+      tags:
+      - Saldo
+      operationId: ApiCustocontabilSaldoGet
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/custocontabil/Saldo/{id}:
+    get:
+      tags:
+      - Saldo
+      operationId: ApiCustocontabilSaldoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  ? /api/custocontabil/Saldo/organizacao/{codOrganizacao}/filial/{codFilial}/criterio/{criterioId}/custoproduto/{padProduto}/{codProduto}
+  : get:
+      tags:
+      - Saldo
+      operationId: ApiCustocontabilSaldoOrganizacaoByCodOrganizacaoFilialByCodFilialCriterioByCriterioIdCustoprodutoByPadProdutoByCodProdutoGet
+      parameters:
+      - name: codOrganizacao
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: codFilial
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: criterioId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: padProduto
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: codProduto
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/custocontabil/Saldo/organizacao/{codOrganizacao}/filial/{codFilial}/criterio/{criterioId}:
+    get:
+      tags:
+      - Saldo
+      operationId: ApiCustocontabilSaldoOrganizacaoByCodOrganizacaoFilialByCodFilialCriterioByCriterioIdGet
+      parameters:
+      - name: codOrganizacao
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: codFilial
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: criterioId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+components: 
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

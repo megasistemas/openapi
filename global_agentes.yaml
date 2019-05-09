@@ -1,0 +1,137 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/globalagente/Agente/{id}:
+    get:
+      tags:
+      - Agente
+      operationId: ApiGlobalagenteAgenteByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/globalagente/AgenteTipo/{id}:
+    get:
+      tags:
+      - AgenteTipo
+      operationId: ApiGlobalagenteAgenteTipoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/ConfiguracaoFiscalAgente/{id}:
+    get:
+      tags:
+      - ConfiguracaoFiscalAgente
+      operationId: ApiConfiguracaoFiscalAgenteByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: data
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/globalagente/Organizacao/{id}:
+    get:
+      tags:
+      - Organizacao
+      operationId: ApiGlobalagenteOrganizacaoByIdGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/globalagente/Organizacao/{id}/OrganizacaoResponsavel:
+    get:
+      tags:
+      - Organizacao
+      operationId: ApiGlobalagenteOrganizacaoByIdOrganizacaoResponsavelGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/globalagente/Organizacao/{id}/OrganizacaoFiscalFinanceiro:
+    get:
+      tags:
+      - Organizacao
+      operationId: ApiGlobalagenteOrganizacaoByIdOrganizacaoFiscalFinanceiroGet
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: expand
+        in: query
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT 

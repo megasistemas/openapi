@@ -1,0 +1,214 @@
+openapi: 3.0.1
+info:
+  description: Mega Sistemas
+  version: v1
+servers:
+- url: https://gtw.fireq.io/t/mega.com.br/gtw/1.0/
+security:
+- bearerAuth: []
+paths:
+  /api/MsProject/ExportaMPP/ExportaArquivo/{idCronograma}:
+    post:
+      tags:
+      - ExportaMPP
+      operationId: ApiMsProjectExportaMPPExportaArquivoByIdCronogramaPost
+      parameters:
+      - name: idCronograma
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: vsMsProjVersion
+        in: query
+        schema:
+          type: string
+          enum:
+          - msPj2010
+          - msPj2013
+          - msPj2016
+      - name: restricaoDeData
+        in: query
+        schema:
+          type: string
+          enum:
+          - Com
+          - Sem
+      - name: agendamento
+        in: query
+        schema:
+          type: string
+          enum:
+          - Manual
+          - Automatico
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/MsProject/ImportaMPP/ImportaArquivo/{idCronograma}:
+    post:
+      tags:
+      - ImportaMPP
+      operationId: ApiMsProjectImportaMPPImportaArquivoByIdCronogramaPost
+      parameters:
+      - name: idCronograma
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/MsProject/Integracao/Status/{idJob}:
+    get:
+      tags:
+      - Integracao
+      operationId: ApiMsProjectIntegracaoStatusByIdJobGet
+      parameters:
+      - name: idJob
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/MsProject/Integracao/CaminhoDoArquivo/{idCronograma}:
+    get:
+      tags:
+      - Integracao
+      operationId: ApiMsProjectIntegracaoCaminhoDoArquivoByIdCronogramaGet
+      parameters:
+      - name: idCronograma
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/MsProject/Log:
+    get:
+      tags:
+      - Log
+      operationId: ApiMsProjectLogGet
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/MsProject/Log/cronograma/{idCronograma}/{somenteErros}:
+    get:
+      tags:
+      - Log
+      operationId: ApiMsProjectLogCronogramaByIdCronogramaBySomenteErrosGet
+      parameters:
+      - name: idCronograma
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: somenteErros
+        in: path
+        required: true
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/MsProject/Log/DataHora/{dataInicial}/{dataFinal}/{somenteErros}:
+    get:
+      tags:
+      - Log
+      operationId: ApiMsProjectLogDataHoraByDataInicialByDataFinalBySomenteErrosGet
+      parameters:
+      - name: dataInicial
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: dataFinal
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: somenteErros
+        in: path
+        required: true
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/MsProject/Log/CronogramaDataHora/{idCronograma}/{dataInicial}/{dataFinal}/{somenteErros}:
+    get:
+      tags:
+      - Log
+      operationId: ApiMsProjectLogCronogramaDataHoraByIdCronogramaByDataInicialByDataFinalBySomenteErrosGet
+      parameters:
+      - name: idCronograma
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: dataInicial
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: dataFinal
+        in: path
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: somenteErros
+        in: path
+        required: true
+        schema:
+          type: boolean
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/MsProject/Log/Erros:
+    get:
+      tags:
+      - Log
+      operationId: ApiMsProjectLogErrosGet
+      responses:
+        200:
+          description: Success
+          content: {}
+  /api/MsProject/Log/TemErrosNaIntegracao/{guid}:
+    get:
+      tags:
+      - Log
+      operationId: ApiMsProjectLogTemErrosNaIntegracaoByGuidGet
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content: {}
+components:
+  securitySchemes:
+    bearerAuth:            
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
